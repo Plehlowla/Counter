@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        span {
+            color: black;
+        }
+        button {
+            font-size: 30px;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Counter: <span id='counter'>0</span></h1>
+
+    <button class="add">Add</button>
+    <button class="subtract">Subtract</button>
+
+    <script>
+        const addBtn = document.querySelector('.add')
+        const subtractBtn = document.querySelector('.subtract')
+
+        const counterNum = document.querySelector("#counter")
+
+        let counter = 0;
+
+        function addCounter() {
+            counter++
+            counterNum.innerText = counter;
+            if(counter > 0) {
+                counterNum.style="color:green;"
+            } else if (counter === 0) {
+                counterNum.style="color: black;"
+            }
+        }
+
+        addBtn.addEventListener('click', addCounter)
+
+        function subCounter() {
+            counter--
+            counterNum.innerText = counter;
+
+            if(counter < 0) {
+                counterNum.style="color:red;"
+            } else if (counter === 0) {
+                counterNum.style="color: black;"
+            }
+        }
+
+        subtractBtn.addEventListener('click', subCounter)
+    </script>
+    
+</body>
+</html>
